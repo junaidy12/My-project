@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] float health = 10;
+    [SerializeField] float baseHealth = 10;
 
     float currentHealth;
 
     bool immune = true;
     private void OnEnable()
     {
-        currentHealth = health;
+        currentHealth = baseHealth;
         immune = true;
     }
     public bool GetImmune()

@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] Transform enemyPoolHolder;
+    [SerializeField] Enemy enemyPrefab;
 
     [SerializeField] Wave[] waves;
     [SerializeField] float delayBetweenSpawn;
-
 
     [SerializeField] List<Enemy> enemiesSpawned = new List<Enemy>();
 
@@ -25,10 +24,12 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < waves.Length; i++)
         {
             startSpawnAmount += waves[i].amountToSpawn;
+            
         }
+        Mathf.Clamp(startSpawnAmount, 1, 200);
         for (int i = 0; i < startSpawnAmount; i++)
         {
-            Enemy enemySpawned = Instantiate(waves[currentWave].enemyPrefab, Vector3.zero, Quaternion.identity, enemyPoolHolder);
+            Enemy enemySpawned = Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity, enemyPoolHolder);
             enemySpawned.gameObject.SetActive(false);
             enemiesSpawned.Add(enemySpawned);
         }
@@ -44,7 +45,6 @@ public class WaveManager : MonoBehaviour
         {
             StartCoroutine(SpawnEnemy());
         }
-
     }
 
     IEnumerator SpawnEnemy()

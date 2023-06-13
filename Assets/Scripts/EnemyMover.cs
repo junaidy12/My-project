@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    [SerializeField] float baseSpeed;
 
     Transform[] waypoints;
 
@@ -31,9 +31,9 @@ public class EnemyMover : MonoBehaviour
         endPosition = waypoints[i+1].position;
 
         Vector3 dir = (endPosition - startPosition).normalized;
-        transform.Translate(dir * moveSpeed * Time.deltaTime);
+        transform.Translate(dir * baseSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, waypoints[i + 1].position) <= .1f)
+        if (Vector3.Distance(transform.position, waypoints[i + 1].position) <= .15f)
         {
             i++;
             if(i >= waypoints.Length - 1)

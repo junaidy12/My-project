@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TowerShooter : MonoBehaviour
 {
-    [SerializeField] float attackDamage;
-    [SerializeField] float attackSpeed;
+    [SerializeField] float baseDamage;
+    [SerializeField] float baseAttackSpeed;
 
     Collider2D target;
     TargetLocator targetLocator;
@@ -41,8 +41,8 @@ public class TowerShooter : MonoBehaviour
 
         if (timeBeforeNextAttack <= 0)
         {
-            target.GetComponent<EnemyHealth>().Damage(attackDamage);
-            timeBeforeNextAttack = 1 / attackSpeed;
+            target.GetComponent<EnemyHealth>().Damage(baseDamage);
+            timeBeforeNextAttack = 1 / baseAttackSpeed;
         }
     }
 }
