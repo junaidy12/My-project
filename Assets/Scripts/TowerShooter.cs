@@ -4,6 +4,8 @@ public class TowerShooter : MonoBehaviour
 {
     [SerializeField] float baseDamage;
     [SerializeField] float baseAttackSpeed;
+    [SerializeField] ParticleSystem projectilePrefab;
+
 
     Collider2D target;
     TargetLocator targetLocator;
@@ -11,38 +13,41 @@ public class TowerShooter : MonoBehaviour
     private void Start()
     {
         targetLocator = GetComponent<TargetLocator>();
+        var main = projectilePrefab.emission;
+        main.rateOverTime = baseAttackSpeed;
         timeBeforeNextAttack = 0.2f;
     }
     private void Update()
     {
         timeBeforeNextAttack -= Time.deltaTime;
-        
 
-        Shoot();
+        var emmision = projectilePrefab.emission;
+        emmision.enabled = Shoot();
 
     }
-
-    void Shoot()
+    public Collider2D GetTarget()
+    {
+        return target;
+    }
+    public float GetDamage()
+    {
+        return baseDamage;
+    }
+    bool Shoot()
     {
         target = targetLocator.GetTarget();
-        if (target == null)
+        if (target == null) return false;
+
+        if (!target.GetComponent<Enemy>().GetAlive()) return false;
+        
+        if (target.GetComponent<EnemyHealth>().GetImmune()) return false;
+
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        if(distance < targetLocator.GetRange())
         {
-            targetLocator.FindNearestEnemy();
-            return;
+            return true;
         }
 
-        if (!target.GetComponent<Enemy>().GetAlive())
-        {
-            targetLocator.FindNearestEnemy();
-            return;
-        }
-
-        if (target.GetComponent<EnemyHealth>().GetImmune()) return;
-
-        if (timeBeforeNextAttack <= 0)
-        {
-            target.GetComponent<EnemyHealth>().Damage(baseDamage);
-            timeBeforeNextAttack = 1 / baseAttackSpeed;
-        }
+        return false;
     }
 }

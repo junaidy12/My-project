@@ -41,39 +41,53 @@ MonoBehaviour:
   m_GameObject: {fileID: 2139584831260133372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ade65a882794f49b5740ecea106677, type: 3}
+  m_Script: {fileID: 11500000, guid: 90e8ceeba100a9848ae2b774612da1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPoolHolder: {fileID: 4160525133928731978, guid: 5a1c768b019059a46ab9043ca2ea788e, type: 3}
+  enemyPoolHolder: {fileID: 0}
   enemyPrefab: {fileID: 7763874608378994206, guid: ce9d0edf7ea56cb4790823b55c4fe111, type: 3}
   waves:
-  - amountToSpawn: 8
+  - amountToSpawn: 15
     delayBeforeSpawn: 3
     delayBetweenEachSpawn: 0.5
     isSpawning: 0
-    color: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
-    finishSpawning: 0
-    enemiesRef: []
-  - amountToSpawn: 12
-    delayBeforeSpawn: 1
-    delayBetweenEachSpawn: 0.5
-    isSpawning: 0
-    color: {r: 0.9020744, g: 0.2971698, b: 1, a: 1}
+    color: {r: 0.1514774, g: 0.7707792, b: 0.8679245, a: 1}
     finishSpawning: 0
     enemiesRef: []
   - amountToSpawn: 20
-    delayBeforeSpawn: 3
+    delayBeforeSpawn: 10
     delayBetweenEachSpawn: 0.5
     isSpawning: 0
-    color: {r: 1, g: 0.43254256, b: 0.19339621, a: 1}
+    color: {r: 0.5925053, g: 0.33490568, b: 1, a: 1}
     finishSpawning: 0
     enemiesRef: []
   - amountToSpawn: 20
-    delayBeforeSpawn: 3
+    delayBeforeSpawn: 10
+    delayBetweenEachSpawn: 0.5
+    isSpawning: 0
+    color: {r: 0.754717, g: 0.67947805, b: 0.19579923, a: 1}
+    finishSpawning: 0
+    enemiesRef: []
+  - amountToSpawn: 20
+    delayBeforeSpawn: 10
+    delayBetweenEachSpawn: 0.5
+    isSpawning: 0
+    color: {r: 1, g: 0.33333337, b: 0.47322658, a: 1}
+    finishSpawning: 0
+    enemiesRef: []
+  - amountToSpawn: 20
+    delayBeforeSpawn: 10
+    delayBetweenEachSpawn: 0.5
+    isSpawning: 0
+    color: {r: 0.6886792, g: 0.44088662, b: 0.27612138, a: 1}
+    finishSpawning: 0
+    enemiesRef: []
+  - amountToSpawn: 20
+    delayBeforeSpawn: 10
     delayBetweenEachSpawn: 0.5
     isSpawning: 0
     color: {r: 0, g: 0, b: 0, a: 1}
     finishSpawning: 0
     enemiesRef: []
-  delayBetweenSpawn: 1
+  delayBetweenSpawn: 10
   enemiesSpawned: []

@@ -14,6 +14,7 @@ public class TurretHolder : MonoBehaviour
     public void SetTurret(Turret turret)
     {
         this.turret = turret;
+        BankManager.Instance.SpendMoney(turret.GetPrice());
         isOccupied = true;
     }
 

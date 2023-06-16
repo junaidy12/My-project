@@ -33,6 +33,7 @@ public class WaveManager : MonoBehaviour
             enemySpawned.gameObject.SetActive(false);
             enemiesSpawned.Add(enemySpawned);
         }
+        spawnWave = true;
     }
 
     private void Update()
@@ -61,7 +62,7 @@ public class WaveManager : MonoBehaviour
                 {
                     if (i < waves[currentWave].amountToSpawn && !enemy.gameObject.activeSelf)
                     {
-                        enemy.GetComponent<SpriteRenderer>().color = waves[currentWave].color;
+                        enemy.GetComponentInChildren<SpriteRenderer>().color = waves[currentWave].color;
                         waves[currentWave].enemiesRef.Add(enemy);
                         enemy.gameObject.SetActive(true);
                         i += 1;

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int towerPrice;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+    }
+    public int GetPrice()
+    {
+        return towerPrice;
     }
 }

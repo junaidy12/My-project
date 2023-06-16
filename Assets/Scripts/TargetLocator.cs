@@ -20,8 +20,11 @@ public class TargetLocator : MonoBehaviour
         if (target == null)
         {
             target = FindNearestEnemy();
+            return;
         }
-        if (target != null && !target.GetComponent<Enemy>().GetAlive())
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+
+        if (target != null && !target.GetComponent<Enemy>().GetAlive() || distance > range)
         {
             target = FindNearestEnemy();
         }
