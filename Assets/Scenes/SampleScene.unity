@@ -3218,7 +3218,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2139584831260133369, guid: e033ea152bdf8a0449318c3166a252ec, type: 3}
+    - target: {fileID: 2139584830490797663, guid: e033ea152bdf8a0449318c3166a252ec, type: 3}
+      propertyPath: levelNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139584830490797663, guid: e033ea152bdf8a0449318c3166a252ec, type: 3}
       propertyPath: enemyPoolHolder
       value: 
       objectReference: {fileID: 1126722261}
